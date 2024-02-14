@@ -1,1 +1,101 @@
-Valentines Day
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Scrapbook</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-gap: 20px;
+    }
+
+    .page {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .photo {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .caption {
+      font-style: italic;
+      color: #666;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .overlay-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="page" onclick="showOverlay('First Date', 'The winds were winding that day :o')">
+    <img class="photo" src="first_date.jpg" alt="First Date">
+    <p class="caption">First Date</p>
+  </div>
+
+  <div class="page" onclick="showOverlay('Beach Trip', 'Road trip to the beach')">
+    <img class="photo" src="https://via.placeholder.com/800x400" alt="Beach Trip">
+    <p class="caption">Beach Trip</p>
+  </div>
+
+  <div class="page" onclick="showOverlay('Anniversary Celebration', 'Celebrated our anniversary at a fancy restaurant')">
+    <img class="photo" src="https://via.placeholder.com/800x400" alt="Anniversary Celebration">
+    <p class="caption">Anniversary Celebration</p>
+  </div>
+
+  <!-- Add more pages as needed -->
+</div>
+
+<div class="overlay" id="overlay" onclick="hideOverlay()">
+  <div class="overlay-content" id="overlayContent">
+    <h2 id="overlayTitle"></h2>
+    <p id="overlayCaption"></p>
+  </div>
+</div>
+
+<script>
+  function showOverlay(title, caption) {
+    document.getElementById('overlayTitle').textContent = title;
+    document.getElementById('overlayCaption').textContent = caption;
+    document.getElementById('overlay').style.display = 'flex';
+  }
+
+  function hideOverlay() {
+    document.getElementById('overlay').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
